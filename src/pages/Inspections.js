@@ -1,13 +1,14 @@
 import { useState, useEffect } from 'react'
 import './Inspections.css'
-const BASE_URL = process.env.REACT_APP_BASE_URL || "http://localhost:4000/";
+const BASE_URL = "https://garden-buddy-app.herokuapp.com/";
 
 const getInspection = async (fn) => {
     try {
         const response = await fetch(BASE_URL +  "inspections")
         const allInspections = await response.json();
         fn(allInspections)
-    
+        
+        console.log(allInspections)
     }catch(err){
         console.log(err)
     }
@@ -39,7 +40,7 @@ const Inspections = (props) =>{
            
     
             const testingOutput = JSON.stringify(newInspection)
-    
+            
             const options = {
                 method: "POST",
                 headers:{
@@ -52,6 +53,7 @@ const Inspections = (props) =>{
             
             const response= await fetch(URL, options)
             const responseData = await response.json()
+            console.log(responseData)
             
     
             getInspection(setInspection)
@@ -69,12 +71,12 @@ const Inspections = (props) =>{
     
 
     const loaded = () => {
-        return inspection?.map((inspection) => {
+        return inspection?.map((look) => {
           return (
-            <div key={inspection._id}>
-              <h1>{inspection.location}</h1>
-              <img src={inspection.image} alt={inspection.plant} />
-              <h3>{inspection.plant}</h3>
+            <div key={look._id}>
+              <h1>{look.location}</h1>
+              <img src={look.image} alt={look.plant} />
+              <h3>{look.plant}</h3>
             </div>
           );
         });
