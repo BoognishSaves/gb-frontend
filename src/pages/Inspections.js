@@ -78,7 +78,7 @@ const Inspections = (props) =>{
             <div key={look._id} >
               <Link to={`/inspections/${look._id}`}className='person-card'>
               <h1>{look.location}</h1>
-              <img src={look.image} alt={look.plant} />
+              <img src={look.image} alt={look.plant} className='card-image' />
               <h3>{look.plant}</h3>
               </Link>
             </div>

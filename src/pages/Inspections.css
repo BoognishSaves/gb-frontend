@@ -2,19 +2,30 @@
     display: grid;
     grid-template-columns: repeat(3,1fr);
     gap: 60px;
+    
 }
+
+.people-list a{
+    text-decoration: none;
+    color: black;
+  }
 
 .person-card {
     border: 1px solid black;
     height: 300px;
     width: 300px;
-    object-fit:contain;
+    object-fit:cover;
     margin-top: 30px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     text-align: center;
     border-radius: 10px;
+  }
+
+  .card-image{
+    object-fit:fill;
+
   }
 
 .spinner {
