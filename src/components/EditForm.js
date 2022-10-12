@@ -1,6 +1,8 @@
+import './Header.css';
+
 const EditForm = ({handleSubmit,handleChange, result, val}) => {
     return (
-        <form onSubmit={handleSubmit}>
+        <form className='edit-form' onSubmit={handleSubmit}>
         <input
         type="text"
             value={result.location}

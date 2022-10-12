@@ -15,5 +15,12 @@
   }
   
   .nav img {width: 45px; height: auto;}
+
+  .edit-form {
+    padding: 32px;
+    display: flex;
+    justify-content: center;
+
+  }
   
   
