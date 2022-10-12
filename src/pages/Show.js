@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
-import { useParams } from "react-router-dom"
-
+import { useParams, useNavigate } from "react-router-dom"
+import {Link}  from 'react-router-dom'
 const Show = () => {
   const [inspection, setInspection] = useState(null)
   const { id } = useParams()
@@ -32,6 +32,33 @@ const loading = () => {
             // alternatively you can use the spinner 
 }
 
+
+const navigate = useNavigate()
+
+const removeInspection = async () => {
+    try {
+      const options = {
+          method:"DELETE"
+      }
+
+      const response = await fetch(URL, options)
+
+    
+      const deletedInspection = await response.json()
+
+      // console.log(deletedPerson)
+      navigate('/')
+
+      
+  } catch (err) {
+      console.log(err)
+      navigate(URL)
+  }
+}
+
+
+
+
 useEffect(() => {
     getInspection()
   }, [])
@@ -39,6 +66,10 @@ useEffect(() => {
   return <section>
    <h1>Show component</h1>
   { inspection ? loaded() : loading()}
+  <div>
+    <Link to='/'>Home</Link>
+    <button className="delete" onClick={removeInspection}>Delete Inspection</button>
+  </div>
   </section>
 }
 
