@@ -10,7 +10,7 @@ const Header = (props) => {
                 </Link>
                 <div>Garden Buddy</div>
             </nav>
-            <img style={{ width: "100%" }} src="https://i.imgur.com/ENwvZkO.png" />
+            <img style={{ width: "100%" }} src="https://i.imgur.com/5YO0JzE.jpg" />
         </header>
     )
 }

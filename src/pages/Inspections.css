@@ -4,6 +4,19 @@
     gap: 60px;
 }
 
+.person-card {
+    border: 1px solid black;
+    height: 300px;
+    width: 300px;
+    object-fit:contain;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align: center;
+    border-radius: 10px;
+  }
+
 .spinner {
   width: 24px;
   animation: loading infinite 3s linear;

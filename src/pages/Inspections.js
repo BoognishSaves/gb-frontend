@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react'
 import './Inspections.css'
+import {Link}  from 'react-router-dom'
+
 const BASE_URL = "https://garden-buddy-app.herokuapp.com/";
 
 const getInspection = async (fn) => {
@@ -73,10 +75,12 @@ const Inspections = (props) =>{
     const loaded = () => {
         return inspection?.map((look) => {
           return (
-            <div key={look._id}>
+            <div key={look._id} >
+              <Link to={`/inspections/${look._id}`}className='person-card'>
               <h1>{look.location}</h1>
               <img src={look.image} alt={look.plant} />
               <h3>{look.plant}</h3>
+              </Link>
             </div>
           );
         });
