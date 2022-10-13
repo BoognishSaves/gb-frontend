@@ -12,10 +12,14 @@
 
 .person-card {
     border: 1px solid black;
+    background-color: rgb(67, 119, 30);
     height: 300px;
     width: 300px;
     object-fit:cover;
     margin-top: 30px;
+    margin-bottom: 50px;
+    margin-left: auto;
+    margin-right: auto;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -24,8 +28,10 @@
   }
 
   .card-image{
-    object-fit:fill;
+    object-fit:cover;
     margin-bottom: 20px;
+    height: 200px;
+    width: 300px;
 
   }
 
@@ -48,6 +54,29 @@
   margin-right: auto;
   display: flex;
   justify-content:center;
-  grid-auto-rows: auto;
+ 
   
+}
+
+.input-buttons {
+  display: flex;
+  margin-left: 55px;
+  
+}
+
+.inspection{
+
+}
+
+.show-photo {
+  height: 300px;
+  width: 300px;
+  object-fit:cover;
+  border-radius: 10%;
+
+}
+
+.delete {
+  margin-bottom: 10px;
+  margin: 10px;
 }

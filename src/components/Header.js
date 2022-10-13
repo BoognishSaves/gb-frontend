@@ -3,14 +3,14 @@ import './Header.css';
 
 const Header = (props) => {
     return (
-        <header style={{ height: "480px", overflow: 'hidden' }}>
+        <header style={{ height: "480px", overflow: 'hidden' }} className="header">
             <nav className="nav">
                 <Link to="/">
                     <img src="https://i.imgur.com/mkqRQDd.jpg"/>
                 </Link>
                 <div>Garden Buddy</div>
             </nav>
-            <img style={{ width: "100%" }} src="https://i.imgur.com/5YO0JzE.jpg" />
+            <img style={{ width: "100%" }} src="https://i.imgur.com/ZB1QaaX.jpg" />
         </header>
     )
 }

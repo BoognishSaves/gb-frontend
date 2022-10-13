@@ -1,6 +1,6 @@
 import ImageUploader from "./ImageUploader"
 import { useState } from "react"
-
+import './Inspections.css'
 const CLOUDINARY_URL="https://api.cloudinary.com/v1_1/GardenBuddy/image/upload"
 
 
@@ -33,9 +33,9 @@ const UploadForm = (props) =>{
     
     return(
         <div>
-            <form onSubmit={handleSubmit} >
+            <form onSubmit={handleSubmit} className="input-buttons">
                 <ImageUploader onFileSelect= {setFile}selectedFile ={file}/>
-                <input type="submit" value="upload"></input>
+                <input type="submit" value="upload" className="upload-button"></input>
             </form>
         </div>
     )

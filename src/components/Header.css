@@ -22,5 +22,25 @@
     justify-content: center;
 
   }
+
+  .footer {
+    background-color: rgb(67, 119, 30);
+    border: 2px solid black;
+    color: rgb(187, 52, 30);
+    -webkit-text-stroke: .5px;
+    -webkit-text-stroke-color: black;
+    font-size: 40px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+  }
+
+  .header {
+    background-color: rgb(67, 119, 30);
+    border: 3px solid black;
+    color: rgb(187, 52, 30);
+    -webkit-text-stroke: .5px;
+    -webkit-text-stroke-color: black;
+    font-size: 40px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+  }
   
   

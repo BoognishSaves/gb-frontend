@@ -12,9 +12,9 @@ const EditForm = ({handleSubmit,handleChange, result, val}) => {
         />
         <input
             type="text"
-            value={result.image}
-            name="image"
-            placeholder="image URL"
+            value={result.info}
+            name="info"
+            placeholder="info"
             onChange={handleChange}
         />
         <input

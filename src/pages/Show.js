@@ -3,7 +3,7 @@ import CommentForm from "../components/CommentForm"
 import { useState, useEffect } from "react"
 import { useParams, useNavigate, redirect } from "react-router-dom"
 import {Link}  from 'react-router-dom'
-
+import './Inspections.css'
 
 const Show = () => {
     const [inspection, setInspection] = useState(null)
@@ -27,12 +27,12 @@ const Show = () => {
 
 
 const loaded = () => (
-    <div className="person">
-        <h1>Show Page</h1>
+    <div className="inspection">
         <h2>{inspection.location}</h2>
+        <img src={inspection.image} alt={inspection.plant+" image"} className="show-photo"/>
         <h2>{inspection.plant}</h2>
+        <h2>{inspection.info}</h2>
         <h2>{inspection.comment.post}</h2>
-        <img src={inspection.image} alt={inspection.plant+" image"} />
     </div>
 )
 
@@ -118,13 +118,13 @@ useEffect(() => {
   }, [])
 
   return (<section>
-   <h1>Show component</h1>
+   <h1>Inspection Detail</h1>
   { editForm ? <><EditForm handleChange= {handleChange} handleSubmit={handleSubmit} result={editForm} val={`Edit ${inspection.location}`}/></> : null}
   { commentForm ? <><CommentForm handleChange= {handleChange} handleCommentSubmit={handleCommentSubmit} resultComment={commentForm} valComment={`Edit ${commentForm.user}`}/></> : null}
   { inspection ? loaded() : loading()}
   <div>
-    <Link to='/'>Home</Link>
-    <button className="delete" onClick={removeInspection}>Delete Inspection</button>
+    <Link to='/'><button className="delete">Home</button></Link>
+    <button className="delete" onClick={removeInspection}>Delete</button>
   </div>
   </section>)
 }

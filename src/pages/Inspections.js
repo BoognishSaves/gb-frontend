@@ -3,11 +3,11 @@ import './Inspections.css'
 import {Link}  from 'react-router-dom'
 import ImageForm from "./ImageForm"
 
-const BASE_URL = "https://garden-buddy-app.herokuapp.com/";
+const BASE_URL = "https://garden-buddy-app.herokuapp.com/inspections";
 
 const getInspection = async (fn) => {
     try {
-        const response = await fetch(BASE_URL +  "inspections")
+        const response = await fetch(BASE_URL)
         const allInspections = await response.json();
         fn(allInspections)
         
@@ -25,6 +25,8 @@ const Inspections = (props) =>{
         location: "",
         image: "",
         plant: "",
+        info: "",
+        comment: ""
     }
     const [inspection, setInspection] = useState([]);
     const [newForm, setNewForm] = useState(initForm)
@@ -104,7 +106,7 @@ const Inspections = (props) =>{
       return (
         <>
         <section>
-	      <h2>Create a new inspection</h2>
+	      <h2>Create A New Inspection</h2>
         <div id="form" className="image-form">
         <ImageForm setImageURL = {setImageURL}/>
         </div>
@@ -130,6 +132,14 @@ const Inspections = (props) =>{
                 placeholder="plant"
                 onChange={handleChange}
             />
+            <input
+                type="text"
+                value={newForm.info}
+                name="info"
+                placeholder="info"
+                onChange={handleChange}
+            />
+            
 		    <input type="submit" value="Create Inspection" />
 	      </form>
         </section>
