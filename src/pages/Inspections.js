@@ -10,7 +10,7 @@ const getInspection = async (fn) => {
         const allInspections = await response.json();
         fn(allInspections)
         
-        console.log(allInspections)
+       
     }catch(err){
         console.log(err)
     }
@@ -55,7 +55,7 @@ const Inspections = (props) =>{
             
             const response= await fetch(URL, options)
             const responseData = await response.json()
-            console.log(responseData)
+            
             
     
             getInspection(setInspection)

@@ -1,4 +1,5 @@
 import EditForm from "../components/EditForm"
+import CommentForm from "../components/CommentForm"
 import { useState, useEffect } from "react"
 import { useParams, useNavigate, redirect } from "react-router-dom"
 import {Link}  from 'react-router-dom'
@@ -7,6 +8,7 @@ import {Link}  from 'react-router-dom'
 const Show = () => {
     const [inspection, setInspection] = useState(null)
     const [editForm, setEditForm] = useState(null)
+    const [commentForm, setCommentForm] = useState(null)
     const { id } = useParams()
     const URL = `https://garden-buddy-app.herokuapp.com/inspections/${id}`
     const navigate = useNavigate()
@@ -29,6 +31,7 @@ const loaded = () => (
         <h1>Show Page</h1>
         <h2>{inspection.location}</h2>
         <h2>{inspection.plant}</h2>
+        <h2>{inspection.comment.post}</h2>
         <img src={inspection.image} alt={inspection.plant+" image"} />
     </div>
 )
@@ -56,6 +59,27 @@ const handleSubmit = async (e) => {
         const updatedInspection = await response.json()
         setInspection(updatedInspection)
         setEditForm(updatedInspection)
+        
+
+    } catch(err){
+        console.log(err)
+    }
+
+}
+const handleCommentSubmit = async (e) => {
+    e.preventDefault()
+    const options = {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(commentForm)
+    }
+    try  {
+        const response = await fetch(URL, options)
+        const updatedComment = await response.json()
+        setCommentForm(updatedComment)
+        setCommentForm(updatedComment)
         
 
     } catch(err){
@@ -95,6 +119,7 @@ useEffect(() => {
   return <section>
    <h1>Show component</h1>
   { editForm ? <><EditForm handleChange= {handleChange} handleSubmit={handleSubmit} result={editForm} val={`Edit ${inspection.location}`}/></> : null}
+  { commentForm ? <><CommentForm handleChange= {handleChange} handleCommentSubmit={handleCommentSubmit} resultComment={commentForm} valComment={`Edit ${commentForm.user}`}/></> : null}
   { inspection ? loaded() : loading()}
   <div>
     <Link to='/'>Home</Link>
