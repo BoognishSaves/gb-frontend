@@ -3,11 +3,11 @@ import './Inspections.css'
 import {Link}  from 'react-router-dom'
 import ImageForm from "./ImageForm"
 
-const BASE_URL = "https://garden-buddy-app.herokuapp.com/inspections";
+const BASE_URL = "https://garden-buddy-app.herokuapp.com/";
 
 const getInspection = async (fn) => {
     try {
-        const response = await fetch(BASE_URL)
+        const response = await fetch(BASE_URL + "inspections")
         const allInspections = await response.json();
         fn(allInspections)
         
@@ -26,7 +26,7 @@ const Inspections = (props) =>{
         image: "",
         plant: "",
         info: "",
-        comment: ""
+      
     }
     const [inspection, setInspection] = useState([]);
     const [newForm, setNewForm] = useState(initForm)
@@ -45,7 +45,7 @@ const Inspections = (props) =>{
            
     
             const testingOutput = JSON.stringify(newInspection)
-            
+            console.log(testingOutput)
             const options = {
                 method: "POST",
                 headers:{
@@ -54,7 +54,7 @@ const Inspections = (props) =>{
                 body:testingOutput
             }
     
-            const URL = BASE_URL+'inspections'
+            const URL = BASE_URL + "inspections"
             
             const response= await fetch(URL, options)
             const responseData = await response.json()

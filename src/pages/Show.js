@@ -45,6 +45,7 @@ const loading = () => {
 
 
 const handleChange = (e) => setEditForm({...editForm, [e.target.name]: e.target.value})
+const handleCommentChange = (e) => setEditForm({...editForm, [e.target.name]: e.target.value})
 
 const handleSubmit = async (e) => {
     e.preventDefault()
@@ -120,7 +121,7 @@ useEffect(() => {
   return (<section>
    <h1>Inspection Detail</h1>
   { editForm ? <><EditForm handleChange= {handleChange} handleSubmit={handleSubmit} result={editForm} val={`Edit ${inspection.location}`}/></> : null}
-  { commentForm ? <><CommentForm handleChange= {handleChange} handleCommentSubmit={handleCommentSubmit} resultComment={commentForm} valComment={`Edit ${commentForm.user}`}/></> : null}
+  { commentForm ? <><CommentForm handleChange= {handleCommentChange} handleCommentSubmit={handleCommentSubmit} resultComment={commentForm} valComment={`Edit ${commentForm.user}`}/></> : null}
   { inspection ? loaded() : loading()}
   <div>
     <Link to='/'><button className="delete">Home</button></Link>
