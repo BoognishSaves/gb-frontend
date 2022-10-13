@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import './Inspections.css'
 import {Link}  from 'react-router-dom'
+import ImageForm from "./ImageForm"
 
 const BASE_URL = "https://garden-buddy-app.herokuapp.com/";
 
@@ -37,7 +38,7 @@ const Inspections = (props) =>{
         try{
             
     
-            const newInspection = {...newForm}
+            const newInspection = {...newForm, image: imageURL}
             
            
     
@@ -99,11 +100,14 @@ const Inspections = (props) =>{
           </h1>
         </section>
       );
-    
+      const [imageURL, setImageURL] = useState("")
       return (
         <>
         <section>
 	      <h2>Create a new inspection</h2>
+        <div id="form" className="image-form">
+        <ImageForm setImageURL = {setImageURL}/>
+        </div>
 	      <form onSubmit={handleSubmit}>
             <input
             type="text"
@@ -114,7 +118,7 @@ const Inspections = (props) =>{
             />
             <input
                 type="text"
-                value={newForm.image}
+                value={imageURL}
                 name="image"
                 placeholder="image URL"
                 onChange={handleChange}

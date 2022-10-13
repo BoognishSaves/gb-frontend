@@ -43,6 +43,7 @@ const loading = () => {
 
 
 
+
 const handleChange = (e) => setEditForm({...editForm, [e.target.name]: e.target.value})
 
 const handleSubmit = async (e) => {
@@ -116,7 +117,7 @@ useEffect(() => {
     getInspection()
   }, [])
 
-  return <section>
+  return (<section>
    <h1>Show component</h1>
   { editForm ? <><EditForm handleChange= {handleChange} handleSubmit={handleSubmit} result={editForm} val={`Edit ${inspection.location}`}/></> : null}
   { commentForm ? <><CommentForm handleChange= {handleChange} handleCommentSubmit={handleCommentSubmit} resultComment={commentForm} valComment={`Edit ${commentForm.user}`}/></> : null}
@@ -125,7 +126,7 @@ useEffect(() => {
     <Link to='/'>Home</Link>
     <button className="delete" onClick={removeInspection}>Delete Inspection</button>
   </div>
-  </section>
+  </section>)
 }
 
 export default Show
