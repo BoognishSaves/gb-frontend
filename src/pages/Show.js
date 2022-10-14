@@ -40,27 +40,28 @@ const Show = () => {
 
 const loaded = () => (
     <div className="inspection">
-        <h2>{inspection.location}</h2>
+        <h2 className="inspection-location">{inspection.location}</h2>
         <img src={inspection.image} alt={inspection.plant+" image"} className="show-photo"/>
-        <h2>{inspection.plant}</h2>
-        <h2>{inspection.info}</h2>
-        <h2>{inspection.comment.post}</h2>
+        <h2 className="inspection-plant">{inspection.plant}</h2>
+        <h2 className="inspection-info">{inspection.info}</h2>
     </div>
 )
 const loadedComment = () => {
     if(inspection.comment.length > 0){
     return inspection.comment.map((note)=> {
         return (
-            <ul>
+            <ul className="comment-list">
                 <li>
-                    <h2>{note.user}</h2>
-                    <h2>{note.post}</h2>
+                    <h2 className="comment-user">{note.user}</h2>
+                    <h2 className="comment-post">{note.post}</h2>
                 </li>
             </ul>
             
         )
     });
+    
 }};
+
 
 const loading = () => {
     return <h1>Loading.........</h1>
@@ -130,7 +131,7 @@ const removeInspection = async () => {
     
       const deletedInspection = await response.json()
 
-      // console.log(deletedPerson)
+      
       navigate('/')
 
       
@@ -155,11 +156,12 @@ useEffect(() => {
 
   return (<section>
    <h1>Inspection Detail</h1>
+  
+  { inspection ? loadedComment() : loading()}
+  <div>
   { editForm ? <><EditForm handleChange= {handleChange} handleSubmit={handleSubmit} result={editForm} val={`Edit ${inspection.location}`}/></> : null}
   { commentForm ? <><CommentForm handleCommentChange= {handleCommentChange} handleCommentSubmit={handleCommentSubmit} resultComment={commentForm} valComment={'Create Comment'}/></> : null}
   { inspection ? loaded() : loading()}
-  { inspection ? loadedComment() : loading()}
-  <div>
     <Link to='/'><button className="delete">Home</button></Link>
     <button className="delete" onClick={removeInspection}>Delete</button>
   </div>

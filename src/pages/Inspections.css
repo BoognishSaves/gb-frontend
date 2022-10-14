@@ -65,8 +65,48 @@
   
 }
 
-.inspection{
+.inspection {
+  display:grid;
+  margin-left: 150px;
+  margin-top: -300px;
+  width: 100px;
+}
 
+.inspection-location {
+  font-family: 'Times New Roman', Times, serif;
+  color: rgb(67, 119, 30);
+  font-size: 50px;
+  margin-bottom: 5px;
+  -webkit-text-stroke: .5px;
+  -webkit-text-stroke-color: black;
+}
+
+.inspection-plant {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  margin-top: 10px;
+
+}
+
+
+.inspection-info {
+  margin-top: -10px;
+
+}
+
+.comment-user {
+  color: chocolate;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin-bottom: -20px;
+
+}
+
+.comment-post {
+  color: red;
+  font-size: 20px;
+  font-family: 'Times New Roman', Times, serif;
+}
+.comment-list {
+  list-style: none;
 }
 
 .show-photo {
