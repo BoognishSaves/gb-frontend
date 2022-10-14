@@ -7,7 +7,9 @@ import './Inspections.css'
 
 const Show = () => {
     const [inspection, setInspection] = useState(null)
+    const [comment, setComment] = useState(null)
     const [editForm, setEditForm] = useState(null)
+    const [newComment, setNewComment] = useState({user:"", post:""})
     const [commentForm, setCommentForm] = useState(null)
     const { id } = useParams()
     const URL = `https://garden-buddy-app.herokuapp.com/inspections/${id}`
@@ -19,6 +21,16 @@ const Show = () => {
       const result = await response.json()
       setInspection(result)
       setEditForm(result)
+    } catch (err) {
+      console.log(err)
+    }
+  }
+  const getComment = async () => {
+    try {
+      const response = await fetch(URL)
+      const result = await response.json()
+      setComment(result)
+      setCommentForm(result)
     } catch (err) {
       console.log(err)
     }
@@ -35,6 +47,20 @@ const loaded = () => (
         <h2>{inspection.comment.post}</h2>
     </div>
 )
+const loadedComment = () => {
+    if(inspection.comment.length > 0){
+    return inspection.comment.map((note)=> {
+        return (
+            <ul>
+                <li>
+                    <h2>{note.user}</h2>
+                    <h2>{note.post}</h2>
+                </li>
+            </ul>
+            
+        )
+    });
+}};
 
 const loading = () => {
     return <h1>Loading.........</h1>
@@ -45,7 +71,8 @@ const loading = () => {
 
 
 const handleChange = (e) => setEditForm({...editForm, [e.target.name]: e.target.value})
-const handleCommentChange = (e) => setEditForm({...editForm, [e.target.name]: e.target.value})
+const handleCommentChange = (e) => setNewComment({...newComment, [e.target.name]: e.target.value})
+
 
 const handleSubmit = async (e) => {
     e.preventDefault()
@@ -70,17 +97,19 @@ const handleSubmit = async (e) => {
 }
 const handleCommentSubmit = async (e) => {
     e.preventDefault()
+    
+    console.log(JSON.stringify(newComment))
     const options = {
         method: "PUT",
         headers: {
             "Content-Type": "application/json"
         },
-        body: JSON.stringify(commentForm)
+        body: JSON.stringify(newComment)
     }
     try  {
-        const response = await fetch(URL, options)
+        const response = await fetch(URL + "/comment", options)
         const updatedComment = await response.json()
-        setCommentForm(updatedComment)
+        setComment(updatedComment)
         setCommentForm(updatedComment)
         
 
@@ -116,13 +145,20 @@ const removeInspection = async () => {
 
 useEffect(() => {
     getInspection()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+useEffect(() => {
+    getComment()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (<section>
    <h1>Inspection Detail</h1>
   { editForm ? <><EditForm handleChange= {handleChange} handleSubmit={handleSubmit} result={editForm} val={`Edit ${inspection.location}`}/></> : null}
-  { commentForm ? <><CommentForm handleChange= {handleCommentChange} handleCommentSubmit={handleCommentSubmit} resultComment={commentForm} valComment={`Edit ${commentForm.user}`}/></> : null}
+  { commentForm ? <><CommentForm handleCommentChange= {handleCommentChange} handleCommentSubmit={handleCommentSubmit} resultComment={commentForm} valComment={'Create Comment'}/></> : null}
   { inspection ? loaded() : loading()}
+  { inspection ? loadedComment() : loading()}
   <div>
     <Link to='/'><button className="delete">Home</button></Link>
     <button className="delete" onClick={removeInspection}>Delete</button>

@@ -1,6 +1,6 @@
 import './Header.css';
 
-const CommentForm = ({handleCommentSubmit,handleChange, resultComment, valComment}) => {
+const CommentForm = ({handleCommentSubmit,handleCommentChange, resultComment, valComment}) => {
     return (
         <form className='edit-form' onSubmit={handleCommentSubmit}>
         <input
@@ -8,14 +8,14 @@ const CommentForm = ({handleCommentSubmit,handleChange, resultComment, valCommen
             value={resultComment.user}
             name="user"
             placeholder="user"
-            onChange={handleChange}
+            onChange={handleCommentChange}
         />
         <input
             type="text"
             value={resultComment.post}
             name="post"
             placeholder="post"
-            onChange={handleChange}
+            onChange={handleCommentChange}
         />
         
         <input type="submit" value={valComment} />
