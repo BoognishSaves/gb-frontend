@@ -98,7 +98,7 @@ const handleSubmit = async (e) => {
 }
 const handleCommentSubmit = async (e) => {
     e.preventDefault()
-    
+    console.log(e)
     console.log(JSON.stringify(newComment))
     const options = {
         method: "PUT",
@@ -112,10 +112,12 @@ const handleCommentSubmit = async (e) => {
         const updatedComment = await response.json()
         setComment(updatedComment)
         setCommentForm(updatedComment)
-        
+        // navigate(`/inspections/${id}`)
+        redirect(`/inspections/${id}`)
 
     } catch(err){
         console.log(err)
+       
     }
 
 }
@@ -146,21 +148,19 @@ const removeInspection = async () => {
 
 useEffect(() => {
     getInspection()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
-
-useEffect(() => {
     getComment()
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
+
+
 
   return (<section>
    <h1>Inspection Detail</h1>
   
   { inspection ? loadedComment() : loading()}
   <div>
-  { editForm ? <><EditForm handleChange= {handleChange} handleSubmit={handleSubmit} result={editForm} val={`Edit ${inspection.location}`}/></> : null}
-  { commentForm ? <><CommentForm handleCommentChange= {handleCommentChange} handleCommentSubmit={handleCommentSubmit} resultComment={commentForm} valComment={'Create Comment'}/></> : null}
+  { editForm ? <><EditForm handleChange= {handleChange} handleSubmit={handleSubmit} result={editForm} val={`Edit ${inspection.location}`} className="forms"/></> : null}
+  { commentForm ? <><CommentForm handleCommentChange= {handleCommentChange} handleCommentSubmit={handleCommentSubmit} resultComment={commentForm} valComment={'Create Comment'} className="forms"/></> : null}
   { inspection ? loaded() : loading()}
     <Link to='/'><button className="delete">Home</button></Link>
     <button className="delete" onClick={removeInspection}>Delete</button>
