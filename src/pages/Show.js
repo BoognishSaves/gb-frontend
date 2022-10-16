@@ -50,7 +50,7 @@ const loadedComment = () => {
     if(inspection.comment.length > 0){
     return inspection.comment.map((note)=> {
         return (
-            <ul className="comment-list">
+            <ul className="comment-list" key={note._id}>
                 <li>
                     <h2 className="comment-user">{note.user}</h2>
                     <h2 className="comment-post">{note.post}</h2>
@@ -65,7 +65,7 @@ const loadedComment = () => {
 
 const loading = () => {
     return <h1>Loading.........</h1>
-            // alternatively you can use the spinner 
+           
 }
 
 
@@ -147,10 +147,10 @@ const removeInspection = async () => {
 
 
 useEffect(() => {
-    getInspection()
-    getComment()
+    getInspection();
+    getComment();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [getComment()])
 
 
 
