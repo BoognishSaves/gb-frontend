@@ -78,7 +78,7 @@ https://thunderous-concha-f30f02.netlify.app/
 
 
 ## Stretch Goals:
-### User Authorization: We have the forms in place just didn't have the time. We intend on getting this implemented in the next day or two.
+### User Authorization: Using user auth to establish roles and access.
 ### Organizing the home page by area of the farm. 
 
 
@@ -122,7 +122,7 @@ https://www.linkedin.com/in/ian-mcbee/
 ## Joshua Smith
 ## https://www.linkedin.com/in/jws-maker/
 
-## To the rest of our General Assembly cohort, we have found friendship and inspiration in each one of you. We are eternally grateful!!  
+## To the rest of the General Assembly cohort, I have found friendship and inspiration in each one of you. I am eternally grateful!!  
 
 
 
