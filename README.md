@@ -3,11 +3,7 @@
 
 ## Product Description
 
-### Perpetual Harvest Farming is a method of commercial production that establishes a constant flow of plants ready to harvested. This is achieved by having farms devided in to each cycle of plant growth. Though this process has become a staple in modern farming, it is not without its flaws. In a Controled Environment setting, this can create areas of vulnerability to pests and transmission between locations. Integrated Pest Management (IPM) is an ecosytem based strategy that focuses on long-term prevention of pests thrugh a combination of techniques such as close monitoring, data collection, biological control, habitat manipulation, and swift response. The goal being a reduction of the use of pesticides and the ability for the pest to develop immunity. Garden Buddy provides an inspection tool so that data can be collected and responses can be administered and catalogued. Increasing the awareness and response time to problems while reducing the labor needed to manage large indoor commercial farms. 
-
-## User Story:
-
-### As a farm manager, I would like a tool that provides an employee the ability to collect information without having to be a skilled agronimist. The form would be simple in nature to ensure the employee knows what info to collect, can do it quickly, and can get a response from the farm manager. Additionally, keeping record of issues and responses will ensure we identify problems areas and can respond without using harsh chemicals.
+### Perpetual Harvest Farming is a method of commercial production that establishes a constant flow of plants ready to harvested. This is achieved by having farms divided in to each cycle of plant growth. Though this process has become a staple in modern farming, it is not without its flaws. In a Controled Environment setting, this can create areas of vulnerability to pests, disease and transmission between locations. Integrated Pest Management (IPM) is an ecosytem based strategy that focuses on long-term prevention of pests thrugh a combination of techniques such as close monitoring, data collection, biological control, habitat manipulation, and swift response. The goal being a reduction of the use of pesticides and the ability for the pest to develop immunity. Garden Buddy provides an inspection tool that aids in data collection and catalogues the responses to an issue. Increasing the awareness and response time to problems while reducing the labor needed to manage large indoor commercial farms. 
 
 
 ## Scope
