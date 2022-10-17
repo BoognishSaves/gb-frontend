@@ -80,6 +80,7 @@ https://thunderous-concha-f30f02.netlify.app/
 ## Stretch Goals:
 ### User Authorization: Using user auth to establish roles and access.
 ### Organizing the home page by area of the farm. 
+### Use icons to guide the person performing the inspection to collect consistent info.
 
 
 
